@@ -1,0 +1,55 @@
+#programa que crea y mueve ciertas carpetas del escritorio y los crea o mueve a
+#lugares designados
+#Autor: Lara EStevez Santiago
+import subprocess
+
+def ejecutar(comando):
+    subprocess.run(comando, shell=True)
+
+def crear_archivo():
+    ejecutar("touch MisNotas.txt")
+
+def crear_carpeta_calificaciones():
+    ejecutar("mkdir Calificaciones")
+
+def crear_carpeta_primer_parcial():
+    ejecutar("mkdir Calificaciones/PrimerParcial")
+
+def mover_archivo_notas():
+    ejecutar("mv MisNotas.txt Calificaciones/")
+
+def mover_calculadora():
+    ejecutar("mv Calculadora2.py Calificaciones/PrimerParcial/")
+
+def mostrar_menu():
+    print("Bienvenido al programa de gestión de archivos:")
+    print("1. Crear archivo de notas")
+    print("2. Crear carpeta de calificaciones")
+    print("3. Crear carpeta del primer parcial")
+    print("4. Mover archivo de notas a la carpeta de calificaciones")
+    print("5. Mover programa calculadora a la carpeta del primer parcial")
+    print("6. Salir")
+
+def main():
+    while True:
+        mostrar_menu()
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            crear_archivo()
+        elif opcion == "2":
+            crear_carpeta_calificaciones()
+        elif opcion == "3":
+            crear_carpeta_primer_parcial()
+        elif opcion == "4":
+            mover_archivo_notas()
+        elif opcion == "5":
+            mover_calculadora()
+        elif opcion == "6":
+            print("¡Adiós!")
+            break
+        else:
+            print("Opción no válida. Por favor, seleccione una opción válida.")
+
+if __name__ == "__main__":
+    main()
